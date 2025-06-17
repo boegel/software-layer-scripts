@@ -1396,6 +1396,9 @@ PARALLELISM_LIMITS = {
     'Qt5': {
         CPU_TARGET_A64FX: (set_maximum, 8),
     },
+    'QuantumESPRESSO': {
+        CPU_TARGET_A64FX: (set_maximum, 12),
+    },
     'ROOT': {
         CPU_TARGET_A64FX: (divide_by_factor, 2),
     },
