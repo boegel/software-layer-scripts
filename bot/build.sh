@@ -287,6 +287,12 @@ if [[ ! -z ${SHARED_FS_PATH} ]]; then
     BUILD_STEP_ARGS+=("--host-injections" "${SHARED_FS_PATH}/host-injections")
 fi
 
+# opt-in to use unionfs overlay tool and debian12 container for EESSI version 2025.06
+if [[ "${EESSI_VERSION_OVERRIDE} == "2025.06" ]]; then
+    BUILD_STEP_ARGS+=("--container" "docker://ghcr.io/eessi/build-node:debian12")
+    BUILD_STEP_ARGS+=("--overlay-tool" "unionfs")
+fi
+
 # create tmp file for output of build step
 build_outerr=$(mktemp build.outerr.XXXX)
 
